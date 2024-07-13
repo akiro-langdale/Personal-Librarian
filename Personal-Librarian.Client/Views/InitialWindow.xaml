@@ -1,0 +1,66 @@
+﻿<Window
+    x:Class="Personal_Librarian.Client.InitialWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Personal_Librarian.Client"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Personal_Librarian.Client.ViewModels"
+    Title="{Binding Title}"
+    Width="520"
+    Height="650"
+    d:DataContext="{d:DesignInstance vm:InitialWindowViewModel,
+                                     IsDesignTimeCreatable=True}"
+    mc:Ignorable="d">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border
+            Width="100"
+            Height="100"
+            Background="Gray" />
+        <TextBlock
+            Margin="0,5"
+            HorizontalAlignment="Center"
+            FontSize="50"
+            Text="Personal-Librarian" />
+        <TextBlock
+            Margin="0,5"
+            HorizontalAlignment="Center"
+            FontSize="20"
+            Text="{Binding Version}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="0,5,10,5">
+                <TextBlock FontSize="20" Text="Создать новую библиотеку" />
+                <TextBlock FontSize="10" Text="Создать новую библиотеку внутри указанной папки." />
+            </StackPanel>
+            <Button
+                Grid.Column="1"
+                Width="100"
+                Height="30"
+                Content="Создать" />
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="0,5,10,5">
+                <TextBlock FontSize="20" Text="Открыть папку как библиотеку" />
+                <TextBlock FontSize="10" Text="Выберите папку, содержащую вашу библиотеку" />
+            </StackPanel>
+            <Button
+                Grid.Column="1"
+                Width="100"
+                Height="30"
+                Content="Открыть" />
+        </Grid>
+
+        <ComboBox Margin="0,5,0,10" SelectedIndex="0">
+            <ComboBoxItem Content="Русский" />
+            <ComboBoxItem Content="English" />
+        </ComboBox>
+    </StackPanel>
+</Window>

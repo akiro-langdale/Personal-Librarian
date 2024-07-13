@@ -7,20 +7,20 @@ namespace Personal_Librarian.Client.Services.Implementations
         private readonly IServiceProvider _service;
         public UserDialogServices(IServiceProvider service) => _service = service;
 
-        private MainWindow? _mainWindow;
+        private InitialWindow? _initialWindow;
 
-        public void OpenMainWindow()
+        public void OpenInitialWindow()
         {
-            if (_mainWindow is { } window)
+            if (_initialWindow is { } window)
             {
                 window.Show();
                 return;
             }
 
-            window = _service.GetRequiredService<MainWindow>();
-            window.Closed += (_, _) => _mainWindow = null;
+            window = _service.GetRequiredService<InitialWindow>();
+            window.Closed += (_, _) => _initialWindow = null;
 
-            _mainWindow = window;
+            _initialWindow = window;
             window.Show();
         }
     }

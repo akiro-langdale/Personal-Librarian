@@ -19,15 +19,15 @@ namespace Personal_Librarian.Client
         {
             var services = new ServiceCollection();
 
-            services.AddSingleton<MainWindowViewModel>();
+            services.AddSingleton<InitialWindowViewModel>();
 
             services.AddSingleton<IUserDialog, UserDialogServices>();
 
             services.AddTransient(
                 s =>
                 {
-                    var model = s.GetRequiredService<MainWindowViewModel>();
-                    var window = new MainWindow { DataContext = model };
+                    var model = s.GetRequiredService<InitialWindowViewModel>();
+                    var window = new InitialWindow { DataContext = model };
 
                     return window;
                 });
@@ -39,7 +39,7 @@ namespace Personal_Librarian.Client
         {
             base.OnStartup(e);
 
-            services.GetRequiredService<IUserDialog>().OpenMainWindow();
+            services.GetRequiredService<IUserDialog>().OpenInitialWindow();
 
         }
     }
